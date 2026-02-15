@@ -9,31 +9,33 @@ box-sizing:border-box;
 }
 
 /* ============================= */
-/* ROOT COLORS */
+/* ROOT COLORS — ASTERISC PURPLE THEME */
 /* ============================= */
 
 :root{
---primary:#a9187d;
---primary-light:#8b85ff;
---bg-dark:#933593;
---card-bg:rgba(255,255,255,0.05);
---glass-border:rgba(255,255,255,0.1);
+--primary:#8E2A8B;
+--primary-light:#B54AB2;
+--bg-dark:#2B0A2E;
+--card-bg:rgba(255,255,255,0.08);
+--glass-border:rgba(255,255,255,0.18);
+--text-soft:#F3E8FF;
+--shadow:rgba(0,0,0,0.4);
 }
 
 /* ============================= */
-/* BODY — PROFESSIONAL LAYOUT */
+/* BODY */
 /* ============================= */
 
 body{
 font-family:'Roboto',sans-serif;
-background:linear-gradient(135deg,#8921a2,#df69e1);
+background:linear-gradient(135deg,#2B0A2E,#5E1A5B,#8E2A8B);
 color:white;
 scroll-behavior:smooth;
 min-height:100vh;
 }
 
 /* ============================= */
-/* NAVBAR — PROFESSIONAL */
+/* NAVBAR */
 /* ============================= */
 
 nav{
@@ -42,8 +44,8 @@ justify-content:space-between;
 align-items:center;
 padding:20px 60px;
 width:100%;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(15px);
+background:rgba(0,0,0,0.25);
+backdrop-filter:blur(18px);
 border-bottom:1px solid var(--glass-border);
 position:sticky;
 top:0;
@@ -67,8 +69,6 @@ border:2px solid var(--primary);
 color:var(--primary);
 letter-spacing:1px;
 }
-
-/* NAV LINKS */
 
 ul{
 display:flex;
@@ -104,7 +104,7 @@ color:var(--primary-light);
 }
 
 /* ============================= */
-/* SECTION LAYOUT — CENTER CARD */
+/* SECTION LAYOUT */
 /* ============================= */
 
 .container{
@@ -115,12 +115,10 @@ padding:60px;
 background:var(--card-bg);
 border-radius:20px;
 border:1px solid var(--glass-border);
-backdrop-filter:blur(20px);
-box-shadow:0 10px 40px rgba(0,0,0,0.4);
-text-align:left; /* professional look */
+backdrop-filter:blur(25px);
+box-shadow:0 20px 60px var(--shadow);
+text-align:left;
 }
-
-/* SECTION SPACING */
 
 section{
 margin-bottom:70px;
@@ -133,27 +131,84 @@ color:var(--primary);
 }
 
 /* ============================= */
-/* SKILLS — GRID (PROFESSIONAL) */
+/* ⭐ SKILLS — ULTRA PREMIUM */
 /* ============================= */
 
 .skills-list{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+gap:25px;
+margin-top:30px;
 }
 
 .skill{
-background:linear-gradient(135deg,var(--primary),var(--primary-light));
-padding:12px 25px;
-border-radius:12px;
+position:relative;
+padding:18px 28px;
+border-radius:16px;
 font-weight:600;
-box-shadow:0 0 15px rgba(108,99,255,0.5);
-transition:.3s;
 text-align:center;
+cursor:pointer;
+overflow:hidden;
+background:rgba(255,255,255,0.06);
+border:1px solid var(--glass-border);
+backdrop-filter:blur(20px);
+box-shadow:0 0 15px rgba(142,42,139,0.25);
+transition:all .35s ease;
+}
+
+/* animated glow border */
+.skill::before{
+content:"";
+position:absolute;
+inset:-2px;
+border-radius:16px;
+background:linear-gradient(120deg,
+transparent,
+var(--primary),
+var(--primary-light),
+transparent);
+opacity:0;
+transition:.4s;
+z-index:-1;
+}
+
+/* shine sweep */
+.skill::after{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.4),
+transparent
+);
+transition:.6s;
 }
 
 .skill:hover{
-transform:scale(1.08);
+transform:translateY(-10px) scale(1.08);
+background:linear-gradient(135deg,var(--primary),var(--primary-light));
+color:white;
+box-shadow:
+0 0 20px rgba(142,42,139,0.7),
+0 0 40px rgba(142,42,139,0.5),
+0 10px 40px rgba(0,0,0,0.4);
+}
+
+.skill:hover::before{
+opacity:1;
+}
+
+.skill:hover::after{
+left:100%;
+}
+
+.skill span{
+letter-spacing:1px;
 }
 
 /* ============================= */
@@ -171,7 +226,7 @@ transition:.3s;
 
 .project-card:hover{
 transform:translateY(-8px);
-box-shadow:0 0 30px rgba(108,99,255,0.4);
+box-shadow:0 10px 40px rgba(142,42,139,0.35);
 }
 
 .project-card a{
@@ -198,7 +253,7 @@ max-width:400px;
 padding:14px;
 border-radius:10px;
 border:1px solid var(--glass-border);
-background:rgba(255,255,255,0.05);
+background:rgba(255,255,255,0.08);
 color:white;
 font-size:15px;
 outline:none;
@@ -214,8 +269,6 @@ resize:none;
 border:1px solid var(--primary);
 box-shadow:0 0 10px var(--primary);
 }
-
-/* BUTTON */
 
 #contact-form button{
 background:linear-gradient(135deg,var(--primary),var(--primary-light));
@@ -274,7 +327,7 @@ text-align:center;
 padding:25px;
 margin-top:60px;
 width:100%;
-background:rgba(0,0,0,0.4);
+background:rgba(0,0,0,0.25);
 border-top:1px solid var(--glass-border);
 }
 
